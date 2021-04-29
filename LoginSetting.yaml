@@ -1,0 +1,108 @@
+# 設定網址
+LOGINPAGEURL: https://usso921.ulsee.com/tw/login  #初始頁面網址
+LOGINUSERPAGEURL: https://usso921.ulsee.com/tw/ #登入後網址
+# 設定報表表頭
+HEADERS: ['測試類別','內容','環境','帳號','結果','回傳訊息']
+# 定義報表內容參數
+STAGE: 'o921'         #環境
+#定義網頁元件位置
+LANGUAGEBTN: "//button[@data-testid='language']" #語系按鈕
+#多語系按鈕測試
+LANGUAGECHK: driver.find_element_by_xpath("//p[@class='mb-1']") #歡迎文字的位置
+#ApiBodyCatch('https://usso921.ulsee.com/usso/auth/login/v2api','$..ssotoken')
+### 測試開始
+CATEGOREY1: '[多語系內容測試]'
+ENLTEST:
+    TITLE: '多語系-英文'
+    TESTBTN: "//*[@id='app']/div[3]/div/div/div/div/div[1]" #按鈕Xpath路徑
+    TESTTEXT: "//p[@class='mb-1']"                          #按鈕文字Xpath路徑
+    VALIDATIONTIP: 'Welcome to'
+ZHLTEST:
+    TITLE: '多語系-繁體中文'
+    TESTBTN: "//*[@id='app']/div[3]/div/div/div/div/div[2]" #按鈕Xpath路徑
+    TESTTEXT: "//p[@class='mb-1']"                          #按鈕文字Xpath路徑
+    VALIDATIONTIP: '歡迎使用'
+CNLTEST:
+    TITLE: '多語系-簡體中文'
+    TESTBTN: "//*[@id='app']/div[3]/div/div/div/div/div[3]" #按鈕Xpath路徑
+    TESTTEXT: "//p[@class='mb-1']"                          #按鈕文字Xpath路徑
+    VALIDATIONTIP: '欢迎使用'
+
+CATEGOREY2: '[按鈕連結測試]'
+PRIVACYPOLICY:
+    TITLE: '按鈕-隱私權'
+    TESTBTN:  "//a[@data-testid='privacyPolicy']"
+    TESTTEXT: "//span[@data-custom-class='title']"
+    VALIDATIONTIP: 'PRIVACY NOTICE'
+TERMSOFSERVICE:
+    TITLE: '按鈕-用戶條款'
+    TESTBTN:  "//a[@data-testid='termsOfService']"
+    TESTTEXT: "//*[@id='hosted']/div/div/div/div[1]/div[1]/div[1]/div/div[1]/strong/span"
+    VALIDATIONTIP: 'TERMS OF USE'
+FORGOTPW:
+    TITLE: '按鈕-忘記密碼'
+    TESTBTN:  "//a[@class='link-forgot-pw']"
+    TESTTEXT: "//div[@class='form-header']"
+    VALIDATIONTIP: '忘記密碼了？'
+SIGNUP:
+    TITLE: '按鈕-註冊帳號'
+    TESTBTN:  "//a[@data-testid='link-signup']"
+    TESTTEXT: "//div[@class='form-header']"
+    VALIDATIONTIP: '立即開始免費註冊'
+
+ # 帳密登入測試開始
+ #定義按鈕位置
+LOGINEMAIL : "//input[@data-testid='email']" # 定義帳號位置
+LOGINEMAILTIP : "//span[@data-testid='email-validation-hint']" # 定義帳號錯誤提示位置
+LOGINPASSWORD : "//input[@data-testid='password']" # 定義密碼位置
+LOGINPASSWORDTIP : "//span[@data-testid='password-validation-hint']" # 定義密碼錯誤提示位置
+LOGINBTN : "//button[@data-testid='btn-login']" # 定義按鈕位置
+CATEGOREY3: '[帳密登入測試]'
+EMPTYACPW:
+    TITLE: '帳號密碼為空白'
+    ACCOUNT: ''
+    PASSWORD : ''
+    VALIDATIONTIP1 : '必填'
+    VALIDATIONTIP2 : '必填'
+    APITARGET: 'https://usso921.ulsee.com/usso/auth/login/v2api'
+    APIRESPONSE : '$..ssotoken'
+WRONGFORM:
+    TITLE : '錯誤帳號格式'
+    ACCOUNT : 'ulsee123'
+    PASSWORD : 'Ulsee'
+    VALIDATIONTIP1 : '格式錯誤'
+    VALIDATIONTIP2 : ''
+    APITARGET : 'https://usso921.ulsee.com/usso/auth/login/v2api'
+    APIRESPONSE : '$..ssotoken'
+INCRTACCRTPW :
+    TITLE : '錯誤帳號正確密碼'
+    ACCOUNT : 'ulsee123@gmail.com'
+    PASSWORD : 'Ulsee'
+    VALIDATIONTIP1 : '無此帳號'
+    VALIDATIONTIP2 : ''
+    APITARGET : 'https://usso921.ulsee.com/usso/auth/login/v2api'
+    APIRESPONSE : '$..ssotoken'
+CRTACINCRTPW:
+    TITLE : '正確帳號錯誤密碼'
+    ACCOUNT : 'ulsee1'
+    PASSWORD : 'Ulsee1'
+    VALIDATIONTIP1 : ''
+    VALIDATIONTIP2 : '密碼錯誤'
+    APITARGET : 'https://usso921.ulsee.com/usso/auth/login/v2api'
+    APIRESPONSE : $..ssotoken'
+CRTACPW:
+    TITLE : '正確帳密'
+    ACCOUNT : 'ulsee1'
+    PASSWORD : 'Ulsee'
+    VALIDATIONTIP1 : ''
+    VALIDATIONTIP2 : ''
+    APITARGET : 'https://usso921.ulsee.com/usso/auth/login/v2api'
+    APIRESPONSE : '$..ssotoken'
+
+
+#  Pwtesting
+#  Mu
+
+
+#  "//p[@class='mb-1']"
+#  ApiBodyCatch('https://usso921.ulsee.com/usso/auth/login/v2api','$..ssotoken')
